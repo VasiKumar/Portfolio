@@ -18,7 +18,8 @@
   --transition: 0.22s ease;
 
   font-family: var(--font-sans);
-  line-height: 1.6;
+  font-size: 18px;
+  line-height: 1.65;
   font-weight: 400;
   color: var(--color-text);
   background: var(--color-bg);
