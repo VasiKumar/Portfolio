@@ -33,12 +33,14 @@ function App() {
   return (
     <main className="portfolio-page">
       <Header name={profile.name} imagePath={placeholderImage} />
-      <About college={profile.college} />
-      <Projects projects={projects} />
-      <Contact email={profile.email} />
-      <footer className="portfolio-footer">
-        &copy; {new Date().getFullYear()} {profile.name} &middot; Built with React
-      </footer>
+      <div className="content-wrap">
+        <About college={profile.college} />
+        <Projects projects={projects} />
+        <Contact email={profile.email} />
+        <footer className="portfolio-footer">
+          &copy; {new Date().getFullYear()} {profile.name} &middot; Built with React
+        </footer>
+      </div>
     </main>
   )
 }

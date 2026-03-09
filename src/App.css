@@ -1,10 +1,396 @@
-/* ── Layout ── */
+/* ══════════════════════════════════════
+   Page
+══════════════════════════════════════ */
 .portfolio-page {
-  width: min(1000px, 92%);
+  width: 100%;
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+/* ══════════════════════════════════════
+   Hero — full-bleed
+══════════════════════════════════════ */
+.hero {
+  position: relative;
+  width: 100%;
+  padding: 6rem 2rem 5rem;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 45%, #4338ca 100%);
+  overflow: hidden;
+}
+
+/* decorative orbs */
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero::before {
+  width: 420px;
+  height: 420px;
+  top: -130px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.25) 0%, transparent 70%);
+}
+.hero::after {
+  width: 320px;
+  height: 320px;
+  bottom: -100px;
+  left: -80px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 2rem 0 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.hero-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 0 0 8px rgba(129, 140, 248, 0.35),
+    0 24px 50px rgba(0, 0, 0, 0.35);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c4b5fd;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.hero-content h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 3.75rem);
+  font-weight: 900;
+  text-transform: capitalize;
+  line-height: 1.1;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+}
+
+.hero-role {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgba(196, 181, 253, 0.9);
+}
+
+.hero-nav {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.hero-nav a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.5rem 1.4rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+}
+
+.hero-nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ══════════════════════════════════════
+   Content wrapper
+══════════════════════════════════════ */
+.content-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
+}
+
+/* ══════════════════════════════════════
+   Section blocks
+══════════════════════════════════════ */
+.section-block {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.section-block:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.section-block h2 {
+  position: relative;
+  margin: 0 0 1.75rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-text);
+  padding-bottom: 1rem;
+}
+
+.section-block h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 52px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+  border-radius: 999px;
+}
+
+/* ══════════════════════════════════════
+   About
+══════════════════════════════════════ */
+.about-text {
+  margin: 0 0 1.75rem;
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  max-width: 65ch;
+}
+
+.skills-label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-tag {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+  color: #5b21b6;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid #c4b5fd;
+  letter-spacing: 0.02em;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.skill-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+/* ══════════════════════════════════════
+   Projects
+══════════════════════════════════════ */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  background: #fafbff;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(99, 102, 241, 0.15);
+  border-color: var(--color-primary-light);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.project-card p {
+  margin: 0 0 1.1rem;
+  font-size: 0.93rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tech-badge {
+  background: #dbeafe;
+  color: #1e40af;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.28rem 0.7rem;
+  border-radius: 5px;
+  border: 1px solid #bfdbfe;
+  letter-spacing: 0.02em;
+}
+
+/* ══════════════════════════════════════
+   Contact
+══════════════════════════════════════ */
+.contact-text {
+  margin: 0 0 1.75rem;
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  max-width: 55ch;
+}
+
+.contact-email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: #ffffff;
+  padding: 0.9rem 2.25rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.97rem;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.contact-email-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.55);
+}
+
+/* ══════════════════════════════════════
+   Footer
+══════════════════════════════════════ */
+.portfolio-footer {
+  text-align: center;
+  font-size: 0.83rem;
+  color: var(--color-text-muted);
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ══════════════════════════════════════
+   Responsive — tablet (≤ 900px)
+══════════════════════════════════════ */
+@media (max-width: 900px) {
+  .content-wrap {
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+/* ══════════════════════════════════════
+   Responsive — mobile (≤ 600px)
+══════════════════════════════════════ */
+@media (max-width: 600px) {
+  .hero {
+    padding: 4rem 1.5rem 3.5rem;
+  }
+
+  .hero-image {
+    width: 110px;
+    height: 110px;
+  }
+
+  .content-wrap {
+    padding: 1.75rem 1rem 3rem;
+    gap: 1.25rem;
+  }
+
+  .section-block {
+    padding: 1.75rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ══════════════════════════════════════
+   Responsive — small mobile (≤ 400px)
+══════════════════════════════════════ */
+@media (max-width: 400px) {
+  .hero {
+    padding: 3rem 1rem 2.75rem;
+  }
+
+  .section-block {
+    padding: 1.35rem;
+    border-radius: 14px;
+  }
+
+  .contact-email-link {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* ── Surfaces ── */
