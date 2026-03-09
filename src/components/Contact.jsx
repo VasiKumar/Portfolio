@@ -8,7 +8,7 @@ function Contact({ email }) {
 
      
         <p>
-          <ol>⭐ Emial - basistha@gmail.com</ol>
+          <ol>⭐ Email - basistha@gmail.com</ol>
 
 
 
@@ -18,9 +18,7 @@ function Contact({ email }) {
           
         </p>
       
-      <a href={`mailto:${email}`} className="contact-email-link">
-        &#9993; {email}
-      </a>
+      
     </section>
   )
 }

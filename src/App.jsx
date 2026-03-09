@@ -2,7 +2,7 @@ import Header from './components/Header'
 import About from './components/About'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
-import placeholderImage from './assets/placeholder-profile.svg'
+import placeholderImage from './assets/placeholder-profile.jpg'
 import './App.css'
 
 const profile = {
